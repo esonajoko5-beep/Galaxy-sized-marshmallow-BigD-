@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f3ee">
+  <title>For Someone Special ♡</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 24px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f8f3ee;
+      color: #594b45;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 410px;
+      text-align: center;
+      padding: 34px 25px;
+      border: 1px solid #eaded6;
+      border-radius: 22px;
+      background: #fffcf9;
+      box-shadow: 0 12px 40px #6c50440d;
+    }
+
+    .eyebrow {
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: #a88c7e;
+    }
+
+    .heart {
+      margin: 25px 0 10px;
+      color: #c58d98;
+      font-size: 43px;
+      animation: heartbeat 2s ease-in-out infinite;
+    }
+
+    h1 {
+      font-weight: normal;
+      font-size: clamp(30px, 8vw, 42px);
+      line-height: 1.2;
+      margin: 12px 0;
+    }
+
+    .intro {
+      color: #89776e;
+      font-size: 15px;
+      line-height: 1.9;
+      margin: 15px 0 25px;
+    }
+
+    button {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      padding: 14px 23px;
+      border: 1px solid #c58d98;
+      border-radius: 30px;
+      background: #c58d98;
+      color: white;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    button:active {
+      transform: scale(0.97);
+    }
+
+    .letter {
+      margin-top: 27px;
+      padding: 23px 18px;
+      border-top: 1px solid #eaded6;
+      background: #faf5f0;
+      border-radius: 14px;
+      text-align: left;
+      animation: appear 0.6s ease;
+    }
+
+    .letter h2 {
+      text-align: center;
+      font-size: 24px;
+      font-weight: normal;
+      color: #a46f7b;
+    }
+
+    .letter p {
+      font-size: 15px;
+      line-height: 1.95;
+    }
+
+    .signature {
+      text-align: right;
+      color: #a46f7b;
+      font-style: italic;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .footer {
+      margin-top: 28px;
+      color: #b09b90;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+
+    <div class="eyebrow">
+      A LITTLE NOTE FOR YOU
+    </div>
+
+    <div class="heart" aria-hidden="true">♡</div>
+
+    <h1>For someone special.</h1>
+
+    <p class="intro">
+      Some feelings deserve more than a text message.
+      <br>
+      So, I made you something.
+    </p>
+
+    <button
+      id="openButton"
+      type="button"
+      aria-expanded="false"
+      aria-controls="loveLetter"
+    >
+      Open your letter ♡
+    </button>
+
+    <section id="loveLetter" class="letter hidden">
+
+      <h2>My love,</h2>
+
+      <p>
+        If I could put everything I feel for you into words,
+        I would probably still find a thousand more things to say.
+      </p>
+
+      <p>
+        I love the little things about us, the conversations,
+        the laughter, and the moments that remind me how special
+        it is to have you in my life.
+      </p>
+
+      <p>
+        I hope you never forget that you matter to me.
+        You don't have to be perfect, have all the answers,
+        or have everything figured out. I appreciate you
+        for who you are.
+      </p>
+
+      <p>
+        And if there is one thing I want you to take away
+        from this little letter, it is this:
+        <strong>I love you, and I'm grateful for you.</strong>
+      </p>
+
+      <p class="signature">
+        Always with love, ♡
+        <br>
+        Your favourite person
+      </p>
+
+      <button id="closeButton" type="button">
+        Close letter ♡
+      </button>
+
+    </section>
+
+    <div class="footer">
+      MADE WITH LOVE · JUST FOR YOU
+    </div>
+
+  </main>
+
+  <script>
+    const openButton =
+      document.getElementById("openButton");
+
+    const closeButton =
+      document.getElementById("closeButton");
+
+    const loveLetter =
+      document.getElementById("loveLetter");
+
+    openButton.addEventListener("click", function () {
+      loveLetter.classList.remove("hidden");
+      openButton.classList.add("hidden");
+      openButton.setAttribute("aria-expanded", "true");
+    });
+
+    closeButton.addEventListener("click", function () {
+      loveLetter.classList.add("hidden");
+      openButton.classList.remove("hidden");
+      openButton.setAttribute("aria-expanded", "false");
+      openButton.focus();
+    });
+  </script>
+</body>
+</html>
